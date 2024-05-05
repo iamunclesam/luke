@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import "../../AiVoice.css"; // Import CSS for styling
+import Chat from "./chat";
+
 
 const AiVoice = () => {
   const [userInput, setUserInput] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false); // State to track speaking state
+  const [chatHistory, setChatHistory] = useState([]); 
 
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
@@ -24,7 +27,16 @@ const AiVoice = () => {
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = await response.text();
-    synthesizeVoice(text); // Call synthesizeVoice function with the response text
+    synthesizeVoice(text);
+        // Add user input and AI response to chat history
+    setChatHistory((prevChatHistory) => [
+      ...prevChatHistory,
+      { sender: "user", message: userInput },
+      { sender: "ai", message: text },
+    ]);
+
+    // Clear user input after submitting
+    setUserInput("");// Call synthesizeVoice function with the response text
     console.log(text);
   };
 
@@ -50,6 +62,7 @@ const AiVoice = () => {
 
   return (
     <div>
+
       <div className="fixed bottom-0 w-full">
         <form>
           <label htmlFor="chat" className="sr-only">
@@ -84,6 +97,17 @@ const AiVoice = () => {
             </button>
           </div>
         </form>
+      </div>
+
+      {/* Chat history */}
+      <div className="mt-4 px-3">
+        {chatHistory.map((message, index) => (
+          <Chat
+            key={index}
+            sender={message.sender}
+            message={message.message}
+          />
+        ))}
       </div>
     </div>
   );
