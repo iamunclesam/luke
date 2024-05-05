@@ -1,0 +1,28 @@
+.audio-icon {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .fa-volume-up {
+    font-size: 24px;
+  }
+  
+  .waves {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: #007bff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .speaking .waves {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  

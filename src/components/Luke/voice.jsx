@@ -1,83 +1,89 @@
-import { useEffect, useState } from "react";
-// import geminiAi from "../../helpers/generateAi";
+import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
+import "../../AiVoice.css"; // Import CSS for styling
 
 const AiVoice = () => {
   const [userInput, setUserInput] = useState("");
+  const [isSpeaking, setIsSpeaking] = useState(false); // State to track speaking state
 
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
   };
 
-  const GEMINI_API_KEY = "AIzaSyA7sNNnlwg5lWUs1CJv4jlqsz3QEOgyrLA"
+  const GEMINI_API_KEY = "AIzaSyA7sNNnlwg5lWUs1CJv4jlqsz3QEOgyrLA";
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
-  async function run(event) {
+  const run = async (event) => {
     event.preventDefault();
+
     // For text-only input, use the gemini-pro model
-    const model = genAI.getGenerativeModel({ model: "gemini-pro"});
-  
-    const prompt = userInput
-  
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+    const prompt = userInput;
+
     const result = await model.generateContent(prompt);
-    const response = result.response;
-    const text = response.text();
-    synthesizeVoice(text)
+    const response = await result.response;
+    const text = await response.text();
+    synthesizeVoice(text); // Call synthesizeVoice function with the response text
     console.log(text);
-  }
+  };
 
-  // useEffect(() => {
-  //   run();
-  // })
-
-
-  const synthesizeVoice = (response) => {
-
-    let text = response
+  const synthesizeVoice = (text) => {
+    setIsSpeaking(true); // Set speaking state to true when synthesizing voice
 
     // Create a new SpeechSynthesisUtterance
     let utterance = new SpeechSynthesisUtterance(text);
-    
+
     // Set properties (optional)
     utterance.volume = 1; // 0 to 1
     utterance.rate = 1; // 0.1 to 10
     utterance.pitch = 1; // 0 to 2
-    
+
     // Speak the utterance
     window.speechSynthesis.speak(utterance);
-}
+
+    // Reset speaking state after speech synthesis completes
+    utterance.onend = () => {
+      setIsSpeaking(false);
+    };
+  };
 
   return (
     <div>
-      <div className="flex items-center justify-center h-96">
-      <form>
-                <label
-                    htmlFor="search"
-                    className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-                >
-                    Search
-                </label>
-                <div className="relative">
-                    <input
-                        type="search"
-                        id="search"
-                        className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Search"
-                        required
-                        value={userInput}
-                        onChange={handleInputChange}
-                    />
-                    <button
-                        type="submit"
-                        onClick={run}
-                        className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                        Send
-                    </button>
-                </div>
-            </form>
-       
+      <div className="fixed bottom-0 w-full">
+        <form>
+          <label htmlFor="chat" className="sr-only">
+            Your message
+          </label>
+          <div className="flex items-center px-3 py-2 bg-gray-50 dark:bg-gray-700">
+            <textarea
+              id="chat"
+              rows="1"
+              className="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Your message..."
+              value={userInput}
+              onChange={handleInputChange}
+            ></textarea>
+            <button
+              type="submit"
+              className="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600"
+              onClick={run}
+            >
+              <svg
+                className={`w-5 h-5 rotate-90 rtl:-rotate-90 ${
+                  isSpeaking ? "animate-pulse" : "" // Apply pulse animation if speaking
+                }`}
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 18 20"
+              >
+                <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
+              </svg>
+              <span className="sr-only">Send message</span>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
