@@ -1678,16 +1678,27 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
           </svg>
         )}
 
-        <div
-          className={`p-2 rounded-lg ${isError
-              ? "bg-red-100 text-sm text-red-800 dark:bg-red-700 dark:text-red-200"
-              : sender === "ai"
-                ? "bg-purple-100 text-sm text-purple-800 dark:bg-purple-500 dark:text-white"
-                : "bg-gray-100 text-sm text-gray-800 dark:bg-gray-700 dark:text-white"
-            }`}
-        >
-          {message}
-        </div>
+       <div
+       className={`p-2 rounded-lg ${isError
+         ? "bg-red-100 text-sm text-red-800 dark:bg-red-700 dark:text-red-200"
+         : sender === "ai"
+           ? "bg-purple-100 text-sm text-purple-800 dark:bg-purple-500 dark:text-white"
+           : "bg-gray-100 text-sm text-gray-800 dark:bg-gray-700 dark:text-white"
+       }`}
+     >
+       {/* Split the message into parts surrounded by double asterisks */}
+       {message.split(/\*{2}(.*?)\*{2}/g).map((part, index) => {
+         // Check if the part is surrounded by double asterisks
+         if (index % 2 === 1) {
+           // Remove the asterisks and render as a heading
+           return <h1 key={index}>{part}</h1>;
+         } else {
+           // Render the regular text
+           return <span key={index}>{part}</span>;
+         }
+       })}
+     </div>
+     
       </div>
     </div>
   );
