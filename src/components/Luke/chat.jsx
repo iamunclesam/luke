@@ -1684,7 +1684,7 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
          : sender === "ai"
            ? "bg-purple-100 text-sm text-purple-800 dark:bg-purple-500 dark:text-white"
            : "bg-gray-100 text-sm text-gray-800 dark:bg-gray-700 dark:text-white"
-       }`}
+       } mb-28`}
      >
        {/* Split the message into parts surrounded by double asterisks */}
        {message.split(/\*{2}(.*?)\*{2}/g).map((part, index) => {
