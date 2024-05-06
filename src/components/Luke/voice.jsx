@@ -26,9 +26,27 @@ const AiVoice = () => {
       // For text-only input, use the gemini-pro model
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
+      const chat = model.startChat({
+        history: [
+          {
+            role: "user",
+            parts: [{ text: "Hello, I have 2 dogs in my house." }],
+          },
+          {
+            role: "model",
+            parts: [{ text: "Great to meet you. What would you like to know?" }],
+          },
+        ],
+        generationConfig: {
+          maxOutputTokens: 100,
+        },
+      });
+
+
+
       const prompt = userInput;
 
-      const result = await model.generateContent(prompt);
+      const result = await chat.sendMessage(prompt);
       const response = result.response;
       const text =  response.text();
       const sanitizedResponse = text.replace(/\*{2}(.*?)\*{2}/g, "$1");
