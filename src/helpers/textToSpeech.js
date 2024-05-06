@@ -1,12 +1,11 @@
 // import axios from "axios";
 
 const textToSpeech = async (text) => {
- 
 
   const options = {
     method: 'POST',
     headers: {
-      'xi-api-key': '938f0f4c2a487ef242729d3dec491c23',
+      'xi-api-key': '679f2448229f34e276ac61feb529fe33',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({

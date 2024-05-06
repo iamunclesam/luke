@@ -4,13 +4,11 @@ import "../../AiVoice.css"; // Import CSS for styling
 import Chat from "./chat";
 import textToSpeech from "../../helpers/textToSpeech";
 
-
 const AiVoice = () => {
-  const [userInput, setUserInput] = useState(""); 
+  const [userInput, setUserInput] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [audioUrl, setAudioUrl] = useState(null);
-  const [isLoading, setLoading] = useState(true)
-
+  const [isLoading, setLoading] = useState(true);
 
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
@@ -20,7 +18,7 @@ const AiVoice = () => {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
   const run = async (event) => {
-    setLoading(false)
+    setLoading(false);
     event.preventDefault();
     try {
       // For text-only input, use the gemini-pro model
@@ -30,11 +28,13 @@ const AiVoice = () => {
         history: [
           {
             role: "user",
-            parts: [{ text: "Hello, I have 2 dogs in my house." }],
+            parts: [{ text: "Hello, I am a techie" }],
           },
           {
             role: "model",
-            parts: [{ text: "Great to meet you. What would you like to know?" }],
+            parts: [
+              { text: "Great to meet you. What would you like to know?" },
+            ],
           },
         ],
         generationConfig: {
@@ -42,15 +42,12 @@ const AiVoice = () => {
         },
       });
 
-
-
       const prompt = userInput;
 
       const result = await chat.sendMessage(prompt);
       const response = result.response;
-      const text =  response.text();
-      const sanitizedResponse = text.replace(/\*{2}(.*?)\*{2}/g, "$1");
-      synthesizeVoice(sanitizedResponse);
+      const text = response.text();
+      synthesizeVoice(text);
       // Add user input and AI response to chat history
       setChatHistory((prevChatHistory) => [
         ...prevChatHistory,
@@ -61,7 +58,7 @@ const AiVoice = () => {
       // Clear user input after submitting
       setUserInput(""); // Call synthesizeVoice function with the response text
       console.log(text);
-      setLoading(true)
+      setLoading(true);
     } catch (error) {
       const errorMessage =
         "Cannot process your request at the moment. Uncle sam will fix it soon!";
@@ -86,8 +83,6 @@ const AiVoice = () => {
     }
   }
 
-
-
   useEffect(() => {
     // Cleanup function to revoke the object URL when the component unmounts
     return () => {
@@ -96,11 +91,6 @@ const AiVoice = () => {
       }
     };
   }, [audioUrl]);
-
-  
-
-
-
 
   return (
     <div>
@@ -123,23 +113,163 @@ const AiVoice = () => {
               className="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600"
               onClick={run}
             >
-             { isLoading ? (<svg
-                className='w-5 h-5 rotate-90 rtl:-rotate-90'
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 18 20"
-              >  <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
-              </svg>) : ( <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><circle cx="12" cy="2" r="0" fill="currentColor"><animate attributeName="r" begin="0" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0"/></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(45 12 12)"><animate attributeName="r" begin="0.125s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0"/></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(90 12 12)"><animate attributeName="r" begin="0.25s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0"/></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(135 12 12)"><animate attributeName="r" begin="0.375s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0"/></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(180 12 12)"><animate attributeName="r" begin="0.5s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0"/></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(225 12 12)"><animate attributeName="r" begin="0.625s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0"/></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(270 12 12)"><animate attributeName="r" begin="0.75s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0"/></circle><circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(315 12 12)"><animate attributeName="r" begin="0.875s" calcMode="spline" dur="1s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite" values="0;2;0;0"/></circle></svg> ) }
+              {isLoading ? (
+                <svg
+                  className="w-5 h-5 rotate-90 rtl:-rotate-90"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 18 20"
+                >
+                  {" "}
+                  <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1.5em"
+                  height="1.5em"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="2" r="0" fill="currentColor">
+                    <animate
+                      attributeName="r"
+                      begin="0"
+                      calcMode="spline"
+                      dur="1s"
+                      keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                      repeatCount="indefinite"
+                      values="0;2;0;0"
+                    />
+                  </circle>
+                  <circle
+                    cx="12"
+                    cy="2"
+                    r="0"
+                    fill="currentColor"
+                    transform="rotate(45 12 12)"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0.125s"
+                      calcMode="spline"
+                      dur="1s"
+                      keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                      repeatCount="indefinite"
+                      values="0;2;0;0"
+                    />
+                  </circle>
+                  <circle
+                    cx="12"
+                    cy="2"
+                    r="0"
+                    fill="currentColor"
+                    transform="rotate(90 12 12)"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0.25s"
+                      calcMode="spline"
+                      dur="1s"
+                      keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                      repeatCount="indefinite"
+                      values="0;2;0;0"
+                    />
+                  </circle>
+                  <circle
+                    cx="12"
+                    cy="2"
+                    r="0"
+                    fill="currentColor"
+                    transform="rotate(135 12 12)"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0.375s"
+                      calcMode="spline"
+                      dur="1s"
+                      keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                      repeatCount="indefinite"
+                      values="0;2;0;0"
+                    />
+                  </circle>
+                  <circle
+                    cx="12"
+                    cy="2"
+                    r="0"
+                    fill="currentColor"
+                    transform="rotate(180 12 12)"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0.5s"
+                      calcMode="spline"
+                      dur="1s"
+                      keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                      repeatCount="indefinite"
+                      values="0;2;0;0"
+                    />
+                  </circle>
+                  <circle
+                    cx="12"
+                    cy="2"
+                    r="0"
+                    fill="currentColor"
+                    transform="rotate(225 12 12)"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0.625s"
+                      calcMode="spline"
+                      dur="1s"
+                      keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                      repeatCount="indefinite"
+                      values="0;2;0;0"
+                    />
+                  </circle>
+                  <circle
+                    cx="12"
+                    cy="2"
+                    r="0"
+                    fill="currentColor"
+                    transform="rotate(270 12 12)"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0.75s"
+                      calcMode="spline"
+                      dur="1s"
+                      keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                      repeatCount="indefinite"
+                      values="0;2;0;0"
+                    />
+                  </circle>
+                  <circle
+                    cx="12"
+                    cy="2"
+                    r="0"
+                    fill="currentColor"
+                    transform="rotate(315 12 12)"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0.875s"
+                      calcMode="spline"
+                      dur="1s"
+                      keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                      repeatCount="indefinite"
+                      values="0;2;0;0"
+                    />
+                  </circle>
+                </svg>
+              )}
 
-
-               
               <span className="sr-only">Send message</span>
             </button>
           </div>
         </form>
       </div>
-{/* 
+      {/* 
       {audioUrl && (
         <audio controls autoPlay>
           <source src={audioUrl} type="audio/mpeg" />
