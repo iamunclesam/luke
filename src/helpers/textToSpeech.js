@@ -19,7 +19,7 @@ const textToSpeech = async (text) => {
   };
 
   try {
-    const response = await fetch('https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM/stream', options);
+    const response = await fetch('https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM', options);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }

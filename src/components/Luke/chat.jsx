@@ -7,13 +7,13 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
       className={`${sender === "user" ? "text-right" : "text-left"
         } mb-2 md:px-28`}
     >
-      <div className="flex items-center">
+      <div className="flex gap-2">
         {sender === "ai" && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="2em"
             height="2em"
-            style={{ flexShrink: 0 }} 
+            style={{ flexShrink: 0, display: 'flex', top: 0}} 
             viewBox="0 0 32 32"
           >
             <g fill="none">
@@ -1680,10 +1680,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
 
         <div
           className={`p-2 rounded-lg ${isError
-              ? "bg-red-100 text-red-800 dark:bg-red-700 dark:text-red-200"
+              ? "bg-red-100 text-sm text-red-800 dark:bg-red-700 dark:text-red-200"
               : sender === "ai"
-                ? "bg-purple-100 text-purple-800 dark:bg-purple-500 dark:text-white"
-                : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-white"
+                ? "bg-purple-100 text-sm text-purple-800 dark:bg-purple-500 dark:text-white"
+                : "bg-gray-100 text-sm text-gray-800 dark:bg-gray-700 dark:text-white"
             }`}
         >
           {message}
