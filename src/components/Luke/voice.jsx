@@ -94,7 +94,7 @@ const AiVoice = () => {
 
   return (
     <div>
-      <div className="fixed bottom-0 w-full">
+      <div className="fixed mt-16 bottom-0 w-full">
         <form>
           <label htmlFor="chat" className="sr-only">
             Your message
