@@ -31,7 +31,8 @@ const AiVoice = () => {
       const result = await model.generateContent(prompt);
       const response = result.response;
       const text =  response.text();
-      synthesizeVoice(text);
+      const sanitizedResponse = text.replace(/\*{2}(.*?)\*{2}/g, "$1");
+      synthesizeVoice(sanitizedResponse);
       // Add user input and AI response to chat history
       setChatHistory((prevChatHistory) => [
         ...prevChatHistory,
