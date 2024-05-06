@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import "../../AiVoice.css"; // Import CSS for styling
 import Chat from "./chat";
+import textToSpeech from "../../helpers/textToSpeech";
+
 
 const AiVoice = () => {
-  const [userInput, setUserInput] = useState("");
-  const [isSpeaking, setIsSpeaking] = useState(false); // State to track speaking state
+  const [userInput, setUserInput] = useState(""); 
   const [chatHistory, setChatHistory] = useState([]);
+  const [audioUrl, setAudioUrl] = useState(null);
+
 
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
@@ -24,8 +27,8 @@ const AiVoice = () => {
       const prompt = userInput;
 
       const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = await response.text();
+      const response = result.response;
+      const text =  response.text();
       synthesizeVoice(text);
       // Add user input and AI response to chat history
       setChatHistory((prevChatHistory) => [
@@ -39,7 +42,7 @@ const AiVoice = () => {
       console.log(text);
     } catch (error) {
       const errorMessage =
-        "Cannot process your request at the moment. Unclesam is fixing me!";
+        "Cannot process your request at the moment. Uncle sam will fix it soon!";
 
       // Add the error message to the chat history
       setChatHistory((prevChatHistory) => [
@@ -52,25 +55,30 @@ const AiVoice = () => {
     }
   };
 
-  const synthesizeVoice = (text) => {
-    setIsSpeaking(true); // Set speaking state to true when synthesizing voice
+  async function synthesizeVoice(text) {
+    try {
+      const newAudioUrl = await textToSpeech(text);
+      setAudioUrl(newAudioUrl);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
 
-    // Create a new SpeechSynthesisUtterance
-    let utterance = new SpeechSynthesisUtterance(text);
 
-    // Set properties (optional)
-    utterance.volume = 1; // 0 to 1
-    utterance.rate = 1; // 0.1 to 10
-    utterance.pitch = 1; // 0 to 2
 
-    // Speak the utterance
-    window.speechSynthesis.speak(utterance);
-
-    // Reset speaking state after speech synthesis completes
-    utterance.onend = () => {
-      setIsSpeaking(false);
+  useEffect(() => {
+    // Cleanup function to revoke the object URL when the component unmounts
+    return () => {
+      if (audioUrl) {
+        URL.revokeObjectURL(audioUrl);
+      }
     };
-  };
+  }, [audioUrl]);
+
+  
+
+
+
 
   return (
     <div>
@@ -94,9 +102,7 @@ const AiVoice = () => {
               onClick={run}
             >
               <svg
-                className={`w-5 h-5 rotate-90 rtl:-rotate-90 ${
-                  isSpeaking ? "animate-pulse" : "" // Apply pulse animation if speaking
-                }`}
+                className='w-5 h-5 rotate-90 rtl:-rotate-90'
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -109,6 +115,13 @@ const AiVoice = () => {
           </div>
         </form>
       </div>
+{/* 
+      {audioUrl && (
+        <audio controls autoPlay>
+          <source src={audioUrl} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      )} */}
 
       {/* Chat history */}
       <div className="mt-4 px-3">

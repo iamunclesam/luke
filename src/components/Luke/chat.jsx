@@ -4,9 +4,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
 
   return (
     <div
-      className={`${
-        sender === "user" ? "text-right" : "text-left"
-      } mb-2 md:px-28`}
+      className={`${sender === "user" ? "text-right" : "text-left"
+        } mb-2 md:px-28`}
     >
       <div className="flex items-center">
         {sender === "ai" && (
@@ -14,6 +13,7 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
             xmlns="http://www.w3.org/2000/svg"
             width="2em"
             height="2em"
+            style={{ flexShrink: 0 }} 
             viewBox="0 0 32 32"
           >
             <g fill="none">
@@ -35,7 +35,7 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
               />
               <path
                 stroke="url(#f2115id2)"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 d="M3.5 3.95v9.1"
               />
               <path
@@ -56,7 +56,7 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
               />
               <path
                 stroke="url(#f2115id6)"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 d="M28.5 4v9.09"
               />
               <path
@@ -134,14 +134,14 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
               <g filter="url(#f2115idp)">
                 <path
                   stroke="url(#f2115idb)"
-                  stroke-width="0.25"
+                  strokeWidth="0.25"
                   d="M3.625 5v6"
                 />
               </g>
               <g filter="url(#f2115idq)">
                 <path
                   stroke="url(#f2115idc)"
-                  stroke-width="0.25"
+                  strokeWidth="0.25"
                   d="M28.625 5v6"
                 />
               </g>
@@ -161,9 +161,9 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
               />
               <path
                 fill="url(#f2115ido)"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M19.776 3.025a1.501 1.501 0 0 1 1.199 1.2a1 1 0 1 1-1.2-1.2"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
               <defs>
                 <linearGradient
@@ -174,8 +174,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="18"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#d5b2c0" stop-opacity="0" />
-                  <stop offset="1" stop-color="#b4878d" />
+                  <stop stopColor="#d5b2c0" stopOpacity="0" />
+                  <stop offset="1" stopColor="#b4878d" />
                 </linearGradient>
                 <linearGradient
                   id="f2115id1"
@@ -185,8 +185,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="31"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#b17edb" stop-opacity="0" />
-                  <stop offset="1" stop-color="#a56bd6" />
+                  <stop stopColor="#b17edb" stopOpacity="0" />
+                  <stop offset="1" stopColor="#a56bd6" />
                 </linearGradient>
                 <linearGradient
                   id="f2115id2"
@@ -196,8 +196,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="13.05"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ea248a" />
-                  <stop offset="1" stop-color="#df2232" />
+                  <stop stopColor="#ea248a" />
+                  <stop offset="1" stopColor="#df2232" />
                 </linearGradient>
                 <linearGradient
                   id="f2115id3"
@@ -207,8 +207,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="23"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#e93273" />
-                  <stop offset="1" stop-color="#d21844" />
+                  <stop stopColor="#e93273" />
+                  <stop offset="1" stopColor="#d21844" />
                 </linearGradient>
                 <linearGradient
                   id="f2115id4"
@@ -218,8 +218,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="11.391"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".006" stop-color="#443e75" />
-                  <stop offset="1" stop-color="#2f1a3b" />
+                  <stop offset=".006" stopColor="#443e75" />
+                  <stop offset="1" stopColor="#2f1a3b" />
                 </linearGradient>
                 <linearGradient
                   id="f2115id5"
@@ -229,8 +229,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="22.889"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".006" stop-color="#39325e" />
-                  <stop offset="1" stop-color="#2b1831" />
+                  <stop offset=".006" stopColor="#39325e" />
+                  <stop offset="1" stopColor="#2b1831" />
                 </linearGradient>
                 <linearGradient
                   id="f2115id6"
@@ -240,8 +240,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="13.09"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ea248a" />
-                  <stop offset="1" stop-color="#df2232" />
+                  <stop stopColor="#ea248a" />
+                  <stop offset="1" stopColor="#df2232" />
                 </linearGradient>
                 <linearGradient
                   id="f2115id7"
@@ -251,8 +251,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="6.5"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ffce2b" />
-                  <stop offset="1" stop-color="#d9862d" />
+                  <stop stopColor="#ffce2b" />
+                  <stop offset="1" stopColor="#d9862d" />
                 </linearGradient>
                 <linearGradient
                   id="f2115id8"
@@ -262,8 +262,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="22.94"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ff30aa" />
-                  <stop offset="1" stop-color="#ff2353" />
+                  <stop stopColor="#ff30aa" />
+                  <stop offset="1" stopColor="#ff2353" />
                 </linearGradient>
                 <linearGradient
                   id="f2115id9"
@@ -273,8 +273,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="14"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#29b6fe" />
-                  <stop offset="1" stop-color="#1769a8" />
+                  <stop stopColor="#29b6fe" />
+                  <stop offset="1" stopColor="#1769a8" />
                 </linearGradient>
                 <linearGradient
                   id="f2115ida"
@@ -284,8 +284,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="14"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#29b6fe" />
-                  <stop offset="1" stop-color="#1769a8" />
+                  <stop stopColor="#29b6fe" />
+                  <stop offset="1" stopColor="#1769a8" />
                 </linearGradient>
                 <linearGradient
                   id="f2115idb"
@@ -295,8 +295,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="9"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ff96cb" />
-                  <stop offset="1" stop-color="#ff6db7" stop-opacity="0" />
+                  <stop stopColor="#ff96cb" />
+                  <stop offset="1" stopColor="#ff6db7" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                   id="f2115idc"
@@ -306,8 +306,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="9"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ff96cb" />
-                  <stop offset="1" stop-color="#ff6db7" stop-opacity="0" />
+                  <stop stopColor="#ff96cb" />
+                  <stop offset="1" stopColor="#ff6db7" stopOpacity="0" />
                 </linearGradient>
                 <radialGradient
                   id="f2115idd"
@@ -317,9 +317,9 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(141.911 10.515 10.065)scale(23.5053)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#eeebf0" />
-                  <stop offset=".493" stop-color="#d1bee3" />
-                  <stop offset="1" stop-color="#d0bce2" />
+                  <stop stopColor="#eeebf0" />
+                  <stop offset=".493" stopColor="#d1bee3" />
+                  <stop offset="1" stopColor="#d0bce2" />
                 </radialGradient>
                 <radialGradient
                   id="f2115ide"
@@ -329,8 +329,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(5 -.5 1.9111 19.11108 25 13.5)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#f0eaf6" />
-                  <stop offset="1" stop-color="#e7e0ef" stop-opacity="0" />
+                  <stop stopColor="#f0eaf6" />
+                  <stop offset="1" stopColor="#e7e0ef" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f2115idf"
@@ -340,9 +340,9 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(-.5 2 -2 -.5 4 3)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ff6c82" />
-                  <stop offset=".441" stop-color="#ff2455" />
-                  <stop offset="1" stop-color="#d9206c" />
+                  <stop stopColor="#ff6c82" />
+                  <stop offset=".441" stopColor="#ff2455" />
+                  <stop offset="1" stopColor="#d9206c" />
                 </radialGradient>
                 <radialGradient
                   id="f2115idg"
@@ -352,9 +352,9 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(104.036 13.324 12.844)scale(2.13027)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ff6c82" />
-                  <stop offset=".441" stop-color="#ff2455" />
-                  <stop offset="1" stop-color="#d9206c" />
+                  <stop stopColor="#ff6c82" />
+                  <stop offset=".441" stopColor="#ff2455" />
+                  <stop offset="1" stopColor="#d9206c" />
                 </radialGradient>
                 <radialGradient
                   id="f2115idh"
@@ -364,8 +364,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(-2.5 .5 -.68428 -3.42136 9.5 15)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#322649" />
-                  <stop offset="1" stop-color="#342950" stop-opacity="0" />
+                  <stop stopColor="#322649" />
+                  <stop offset="1" stopColor="#342950" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f2115idi"
@@ -375,8 +375,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(-2.5 .5 -.68428 -3.42136 21 15)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#322649" />
-                  <stop offset="1" stop-color="#342950" stop-opacity="0" />
+                  <stop stopColor="#322649" />
+                  <stop offset="1" stopColor="#342950" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f2115idj"
@@ -386,8 +386,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 3 -10 0 16 4)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".431" stop-color="#ca7e29" stop-opacity="0" />
-                  <stop offset="1" stop-color="#673f13" />
+                  <stop offset=".431" stopColor="#ca7e29" stopOpacity="0" />
+                  <stop offset="1" stopColor="#673f13" />
                 </radialGradient>
                 <radialGradient
                   id="f2115idk"
@@ -397,8 +397,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 2.5 -1.14393 0 11 13.5)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#54c8ff" />
-                  <stop offset="1" stop-color="#54c8ff" stop-opacity="0" />
+                  <stop stopColor="#54c8ff" />
+                  <stop offset="1" stopColor="#54c8ff" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f2115idl"
@@ -408,8 +408,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 2.5 -1.14393 0 22.5 13.5)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#54c8ff" />
-                  <stop offset="1" stop-color="#54c8ff" stop-opacity="0" />
+                  <stop stopColor="#54c8ff" />
+                  <stop offset="1" stopColor="#54c8ff" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f2115idm"
@@ -419,8 +419,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 1.5 -1 0 29 13.5)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ff72c1" />
-                  <stop offset="1" stop-color="#ff6ebf" stop-opacity="0" />
+                  <stop stopColor="#ff72c1" />
+                  <stop offset="1" stopColor="#ff6ebf" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f2115idn"
@@ -430,8 +430,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 4.5 -.55944 0 29 16.5)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ff4b9c" />
-                  <stop offset="1" stop-color="#ff73c1" stop-opacity="0" />
+                  <stop stopColor="#ff4b9c" />
+                  <stop offset="1" stopColor="#ff73c1" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f2115ido"
@@ -441,8 +441,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(90 8 12)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ffea60" />
-                  <stop offset="1" stop-color="#ffef66" stop-opacity="0" />
+                  <stop stopColor="#ffea60" />
+                  <stop offset="1" stopColor="#ffef66" stopOpacity="0" />
                 </radialGradient>
                 <filter
                   id="f2115idp"
@@ -450,10 +450,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="7"
                   x="3"
                   y="4.5"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -470,10 +470,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="7"
                   x="28"
                   y="4.5"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -494,6 +494,7 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
             xmlns="http://www.w3.org/2000/svg"
             width="2em"
             height="2em"
+            style={{ flexShrink: 0 }} 
             viewBox="0 0 32 32"
           >
             <g fill="none">
@@ -574,7 +575,7 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
               <g filter="url(#f1585idx)">
                 <path
                   stroke="url(#f1585id1f)"
-                  stroke-width="0.15"
+                  strokeWidth="0.15"
                   d="M13.364 23.255a.36.36 0 0 0-.43.073a.33.33 0 0 0-.036.425a3.605 3.605 0 0 0 3.014 1.61a3.605 3.605 0 0 0 3.015-1.61a.334.334 0 0 0-.037-.428a.361.361 0 0 0-.428-.07h-.001a5.5 5.5 0 0 1-2.549.603c-.934 0-1.812-.22-2.548-.604Z"
                 />
               </g>
@@ -699,7 +700,7 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   cx="11.338"
                   cy="16.646"
                   fill="#c7a7a3"
-                  fill-opacity="0.9"
+                  fillOpacity="0.9"
                   rx=".726"
                   ry=".368"
                   transform="rotate(-27.914 11.338 16.646)"
@@ -752,16 +753,16 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
               <g filter="url(#f1585id19)">
                 <path
                   stroke="#353535"
-                  stroke-linecap="round"
-                  stroke-width="0.25"
+                  strokeLinecap="round"
+                  strokeWidth="0.25"
                   d="M9.623 13.296c.48-.344 1.674-.949 3.086-.711"
                 />
               </g>
               <g filter="url(#f1585id1a)">
                 <path
                   stroke="#353535"
-                  stroke-linecap="round"
-                  stroke-width="0.25"
+                  strokeLinecap="round"
+                  strokeWidth="0.25"
                   d="M22.552 13.21c-.48-.344-1.674-.949-3.086-.711"
                 />
               </g>
@@ -774,8 +775,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(1.39603 3.76525 -4.47282 1.65837 24.775 20.288)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".215" stop-color="#313131" />
-                  <stop offset="1" stop-color="#1a161e" />
+                  <stop offset=".215" stopColor="#313131" />
+                  <stop offset="1" stopColor="#1a161e" />
                 </radialGradient>
                 <radialGradient
                   id="f1585id1"
@@ -785,8 +786,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(2.75273 .86514 -2.66903 8.49237 4.62 21.202)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#564943" />
-                  <stop offset=".746" stop-color="#1e191c" />
+                  <stop stopColor="#564943" />
+                  <stop offset=".746" stopColor="#1e191c" />
                 </radialGradient>
                 <radialGradient
                   id="f1585id2"
@@ -796,8 +797,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(-9.74687 0 0 -17.2421 21.147 18.533)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ffdcc0" />
-                  <stop offset="1" stop-color="#d6a195" />
+                  <stop stopColor="#ffdcc0" />
+                  <stop offset="1" stopColor="#d6a195" />
                 </radialGradient>
                 <radialGradient
                   id="f1585id3"
@@ -807,8 +808,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(-1.86098 23.80477 -19.71315 -1.5411 18.86 7.508)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".767" stop-color="#b57997" stop-opacity="0" />
-                  <stop offset="1" stop-color="#b57997" />
+                  <stop offset=".767" stopColor="#b57997" stopOpacity="0" />
+                  <stop offset="1" stopColor="#b57997" />
                 </radialGradient>
                 <radialGradient
                   id="f1585id4"
@@ -818,8 +819,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 -2.141 2.64949 0 20.475 16.085)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".325" stop-color="#f6b8a8" />
-                  <stop offset="1" stop-color="#f6b8a8" stop-opacity="0" />
+                  <stop offset=".325" stopColor="#f6b8a8" />
+                  <stop offset="1" stopColor="#f6b8a8" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585id5"
@@ -829,8 +830,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(.00733 -2.04019 2.2202 .00797 11.624 16.172)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".378" stop-color="#d39991" />
-                  <stop offset="1" stop-color="#d39991" stop-opacity="0" />
+                  <stop offset=".378" stopColor="#d39991" />
+                  <stop offset="1" stopColor="#d39991" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585id6"
@@ -840,8 +841,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(176.388 10.835 10.54)scale(15.8715 40.5438)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".836" stop-color="#e6ad97" stop-opacity="0" />
-                  <stop offset="1" stop-color="#e6ad97" />
+                  <stop offset=".836" stopColor="#e6ad97" stopOpacity="0" />
+                  <stop offset="1" stopColor="#e6ad97" />
                 </radialGradient>
                 <radialGradient
                   id="f1585id7"
@@ -851,8 +852,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(5.77672 -6.1111 2.2371 2.11469 5.719 10.469)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".428" stop-color="#9f6d5c" />
-                  <stop offset="1" stop-color="#9f6d5c" stop-opacity="0" />
+                  <stop offset=".428" stopColor="#9f6d5c" />
+                  <stop offset="1" stopColor="#9f6d5c" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585id8"
@@ -862,8 +863,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(-3.24997 5.37502 -4.43752 -2.68312 20.438 9.25)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".078" stop-color="#f6c3b0" />
-                  <stop offset="1" stop-color="#f6c3b0" stop-opacity="0" />
+                  <stop offset=".078" stopColor="#f6c3b0" />
+                  <stop offset="1" stopColor="#f6c3b0" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585id9"
@@ -873,8 +874,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 .4551 -1.43034 0 16.782 21.07)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ffddc7" />
-                  <stop offset="1" stop-color="#ffddc7" stop-opacity="0" />
+                  <stop stopColor="#ffddc7" />
+                  <stop offset="1" stopColor="#ffddc7" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585ida"
@@ -884,8 +885,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(155.369 6.315 11.86)scale(3.11992 5.01397)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".714" stop-color="#d3968c" stop-opacity="0" />
-                  <stop offset="1" stop-color="#d3968c" />
+                  <stop offset=".714" stopColor="#d3968c" stopOpacity="0" />
+                  <stop offset="1" stopColor="#d3968c" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idb"
@@ -895,8 +896,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 -1.34375 5.40625 0 15.912 25.132)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#88014e" />
-                  <stop offset="1" stop-color="#86004d" />
+                  <stop stopColor="#88014e" />
+                  <stop offset="1" stopColor="#86004d" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idc"
@@ -906,8 +907,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 -6.52791 16.5083 0 6.162 13.14)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".536" stop-color="#3e3433" />
-                  <stop offset="1" stop-color="#3e3433" stop-opacity="0" />
+                  <stop offset=".536" stopColor="#3e3433" />
+                  <stop offset="1" stopColor="#3e3433" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idd"
@@ -917,8 +918,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(-87.401 20.64 -5.275)scale(4.68924 8.30841)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#4f4d4d" />
-                  <stop offset="1" stop-color="#4f4d4d" stop-opacity="0" />
+                  <stop stopColor="#4f4d4d" />
+                  <stop offset="1" stopColor="#4f4d4d" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585ide"
@@ -928,8 +929,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(-146.667 12.365 -1.587)scale(5.26377 3.86388)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#5e5a5b" />
-                  <stop offset="1" stop-color="#5e5a5b" stop-opacity="0" />
+                  <stop stopColor="#5e5a5b" />
+                  <stop offset="1" stopColor="#5e5a5b" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idf"
@@ -939,8 +940,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(1.6875 2.75 -6.36771 3.90746 14.225 .913)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".287" stop-color="#484646" />
-                  <stop offset="1" stop-color="#484646" stop-opacity="0" />
+                  <stop offset=".287" stopColor="#484646" />
+                  <stop offset="1" stopColor="#484646" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idg"
@@ -950,8 +951,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(-4.10381 0 0 -1.52308 16.385 5.125)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#423c3f" />
-                  <stop offset="1" stop-color="#423c3f" stop-opacity="0" />
+                  <stop stopColor="#423c3f" />
+                  <stop offset="1" stopColor="#423c3f" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idh"
@@ -961,9 +962,9 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(6 -9.5 10.52499 6.64735 5.787 12.475)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".093" stop-color="#0b0306" />
-                  <stop offset=".311" stop-color="#1c0c20" />
-                  <stop offset="1" stop-color="#1c0c20" stop-opacity="0" />
+                  <stop offset=".093" stopColor="#0b0306" />
+                  <stop offset=".311" stopColor="#1c0c20" />
+                  <stop offset="1" stopColor="#1c0c20" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idi"
@@ -973,8 +974,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(5.70209 0 0 2.22942 22.277 6.573)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#4e494b" />
-                  <stop offset="1" stop-color="#4e494b" stop-opacity="0" />
+                  <stop stopColor="#4e494b" />
+                  <stop offset="1" stopColor="#4e494b" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idj"
@@ -984,8 +985,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(-43.614 25.702 -19.903)scale(6.89811 12.6287)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".857" stop-color="#545051" stop-opacity="0" />
-                  <stop offset="1" stop-color="#545051" />
+                  <stop offset=".857" stopColor="#545051" stopOpacity="0" />
+                  <stop offset="1" stopColor="#545051" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idk"
@@ -995,8 +996,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(6.056 .70788 -.29638 2.53554 19.172 9.484)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#200e25" />
-                  <stop offset="1" stop-color="#200e25" stop-opacity="0" />
+                  <stop stopColor="#200e25" />
+                  <stop offset="1" stopColor="#200e25" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idl"
@@ -1006,10 +1007,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 1.51263 -2.40601 0 19.98 16.825)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".802" stop-color="#7d574a" />
-                  <stop offset="1" stop-color="#694b43" />
-                  <stop offset="1" stop-color="#804d49" />
-                  <stop offset="1" stop-color="#664842" />
+                  <stop offset=".802" stopColor="#7d574a" />
+                  <stop offset="1" stopColor="#694b43" />
+                  <stop offset="1" stopColor="#804d49" />
+                  <stop offset="1" stopColor="#664842" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idm"
@@ -1019,8 +1020,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(-127.812 13.936 3.702)scale(.70528 .97101)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".766" stop-color="#ffe6e2" stop-opacity="0" />
-                  <stop offset=".966" stop-color="#ffe6e2" />
+                  <stop offset=".766" stopColor="#ffe6e2" stopOpacity="0" />
+                  <stop offset=".966" stopColor="#ffe6e2" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idn"
@@ -1030,10 +1031,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(0 1.51271 -2.40614 0 11.844 16.825)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".802" stop-color="#7d574a" />
-                  <stop offset="1" stop-color="#694b43" />
-                  <stop offset="1" stop-color="#804d49" />
-                  <stop offset="1" stop-color="#664842" />
+                  <stop offset=".802" stopColor="#7d574a" />
+                  <stop offset="1" stopColor="#694b43" />
+                  <stop offset="1" stopColor="#804d49" />
+                  <stop offset="1" stopColor="#664842" />
                 </radialGradient>
                 <radialGradient
                   id="f1585ido"
@@ -1043,8 +1044,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(-90.897 14.138 3.05)scale(.92129 1.10743)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".766" stop-color="#ffe6e2" stop-opacity="0" />
-                  <stop offset=".966" stop-color="#ffe6e2" />
+                  <stop offset=".766" stopColor="#ffe6e2" stopOpacity="0" />
+                  <stop offset=".966" stopColor="#ffe6e2" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idp"
@@ -1054,8 +1055,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(74.347 1.15 24.594)scale(4.34346 4.144)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".856" stop-color="#ce978e" stop-opacity="0" />
-                  <stop offset="1" stop-color="#ce978e" />
+                  <stop offset=".856" stopColor="#ce978e" stopOpacity="0" />
+                  <stop offset="1" stopColor="#ce978e" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idq"
@@ -1065,8 +1066,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(1.46875 -2.01563 1.6895 1.2311 25.194 17.866)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".664" stop-color="#f7b99c" />
-                  <stop offset="1" stop-color="#f7b99c" stop-opacity="0" />
+                  <stop offset=".664" stopColor="#f7b99c" />
+                  <stop offset="1" stopColor="#f7b99c" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idr"
@@ -1076,8 +1077,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="matrix(1.0944 -2.89062 3.86227 1.46228 25.406 18.188)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".803" stop-color="#ebbb9d" stop-opacity="0" />
-                  <stop offset="1" stop-color="#ebbb9d" />
+                  <stop offset=".803" stopColor="#ebbb9d" stopOpacity="0" />
+                  <stop offset="1" stopColor="#ebbb9d" />
                 </radialGradient>
                 <radialGradient
                   id="f1585ids"
@@ -1087,8 +1088,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(-173.034 3.923 8.82)scale(3.02997 3.25254)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".775" stop-color="#e8af99" stop-opacity="0" />
-                  <stop offset="1" stop-color="#e8af99" />
+                  <stop offset=".775" stopColor="#e8af99" stopOpacity="0" />
+                  <stop offset="1" stopColor="#e8af99" />
                 </radialGradient>
                 <radialGradient
                   id="f1585idt"
@@ -1098,8 +1099,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   gradientTransform="rotate(170.26 2.606 9.313)scale(1.73369 2.12732)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#c18472" />
-                  <stop offset="1" stop-color="#ca8b7a" />
+                  <stop stopColor="#c18472" />
+                  <stop offset="1" stopColor="#ca8b7a" />
                 </radialGradient>
                 <filter
                   id="f1585idu"
@@ -1107,10 +1108,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="23.21"
                   x="6.472"
                   y="7.028"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1156,10 +1157,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="7.407"
                   x="13.019"
                   y="15.987"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1176,10 +1177,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="5.807"
                   x="13.962"
                   y="16.431"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1196,10 +1197,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="2.5"
                   x="12.662"
                   y="23.038"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1216,10 +1217,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="15.148"
                   x="3.912"
                   y="1.538"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1265,10 +1266,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="2.047"
                   x="18.875"
                   y="11.838"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1296,10 +1297,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="2.019"
                   x="9.075"
                   y="11.865"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1327,10 +1328,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="11.239"
                   x="4.541"
                   y="3.102"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1362,10 +1363,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="10.965"
                   x="15.417"
                   y="3.689"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1382,10 +1383,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="1.125"
                   x="18.698"
                   y="16.091"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1402,10 +1403,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="1.357"
                   x="20.351"
                   y="16.317"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1422,10 +1423,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="1.594"
                   x="12.068"
                   y="16.199"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1442,10 +1443,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="1.141"
                   x="10.574"
                   y="16.076"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1462,10 +1463,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="4.004"
                   x="4.791"
                   y="16.049"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1482,10 +1483,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="4.549"
                   x="24.745"
                   y="15.784"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1502,10 +1503,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="1.515"
                   x="9.248"
                   y="12.156"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1522,10 +1523,10 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   height="1.515"
                   x="19.091"
                   y="12.07"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     in="SourceGraphic"
                     in2="BackgroundImageFix"
@@ -1544,8 +1545,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="21.675"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ffd6ba" />
-                  <stop offset="1" stop-color="#ffd6ba" stop-opacity="0" />
+                  <stop stopColor="#ffd6ba" />
+                  <stop offset="1" stopColor="#ffd6ba" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1c"
@@ -1555,8 +1556,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="19.856"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset=".36" stop-color="#ffdfc7" />
-                  <stop offset="1" stop-color="#ffdfc7" stop-opacity="0" />
+                  <stop offset=".36" stopColor="#ffdfc7" />
+                  <stop offset="1" stopColor="#ffdfc7" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1d"
@@ -1566,8 +1567,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="21.048"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#d89793" />
-                  <stop offset="1" stop-color="#d89793" stop-opacity="0" />
+                  <stop stopColor="#d89793" />
+                  <stop offset="1" stopColor="#d89793" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1e"
@@ -1577,8 +1578,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="17.891"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#e8bba8" />
-                  <stop offset="1" stop-color="#e8bba8" stop-opacity="0" />
+                  <stop stopColor="#e8bba8" />
+                  <stop offset="1" stopColor="#e8bba8" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1f"
@@ -1588,8 +1589,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="23.288"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#e1aca6" />
-                  <stop offset="1" stop-color="#e1aca6" stop-opacity="0" />
+                  <stop stopColor="#e1aca6" />
+                  <stop offset="1" stopColor="#e1aca6" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1g"
@@ -1599,8 +1600,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="7.975"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#443d40" />
-                  <stop offset="1" stop-color="#272127" />
+                  <stop stopColor="#443d40" />
+                  <stop offset="1" stopColor="#272127" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1h"
@@ -1610,8 +1611,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="17.286"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#b4948d" />
-                  <stop offset="1" stop-color="#b4948d" stop-opacity="0" />
+                  <stop stopColor="#b4948d" />
+                  <stop offset="1" stopColor="#b4948d" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1i"
@@ -1621,8 +1622,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="17.286"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#b4948d" />
-                  <stop offset="1" stop-color="#b4948d" stop-opacity="0" />
+                  <stop stopColor="#b4948d" />
+                  <stop offset="1" stopColor="#b4948d" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1j"
@@ -1632,8 +1633,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="21.033"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#ffd6bd" />
-                  <stop offset="1" stop-color="#f0b8a6" />
+                  <stop stopColor="#ffd6bd" />
+                  <stop offset="1" stopColor="#f0b8a6" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1k"
@@ -1643,8 +1644,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="18.05"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#d19787" />
-                  <stop offset="1" stop-color="#c9887d" />
+                  <stop stopColor="#d19787" />
+                  <stop offset="1" stopColor="#c9887d" />
                 </linearGradient>
                 <linearGradient
                   id="f1585id1l"
@@ -1654,8 +1655,8 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
                   y2="19.832"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#f9bb9e" />
-                  <stop offset="1" stop-color="#f6bba0" />
+                  <stop stopColor="#f9bb9e" />
+                  <stop offset="1" stopColor="#f6bba0" />
                 </linearGradient>
               </defs>
             </g>
@@ -1667,6 +1668,7 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
             xmlns="http://www.w3.org/2000/svg"
             width="2em"
             height="2em"
+            style={{ flexShrink: 0 }} 
             viewBox="0 0 24 24"
           >
             <path
@@ -1677,13 +1679,12 @@ const ChatHistoryItem = ({ sender, message, isError }) => {
         )}
 
         <div
-          className={`p-2 rounded-lg ${
-            isError
+          className={`p-2 rounded-lg ${isError
               ? "bg-red-100 text-red-800 dark:bg-red-700 dark:text-red-200"
               : sender === "ai"
-              ? "bg-purple-100 text-purple-800 dark:bg-purple-500 dark:text-white"
-              : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-white"
-          }`}
+                ? "bg-purple-100 text-purple-800 dark:bg-purple-500 dark:text-white"
+                : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-white"
+            }`}
         >
           {message}
         </div>
